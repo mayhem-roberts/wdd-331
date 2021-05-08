@@ -1,0 +1,17 @@
+fieldset > p:nth-of-type(n+3) {
+    display: none;
+}
+
+span.help {
+    color: blue; /* specifies the class help that is attched to a span*/
+}
+
+span .help {
+    color: chartreuse; /*effects the child element inside the span with a class of help*/
+}
+.help::before {
+    content: "(";
+}
+.help::after {
+    content: ")";
+}
