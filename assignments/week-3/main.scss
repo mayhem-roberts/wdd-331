@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap');
+// variables
+$background-color: #FAEBD7;
+$second-background-color: #fff;
+$accent-color: #6495ED;
+$active-color: #DEB887;
+$font-color: #000;
+$second-font-color: #808080;
+
+$header-font: 'Lora', sans-serif;
+$body-font: Helvetica, sans-serif;
+$minor-font: Arial, sans-serif;
+
+$border-width: 1.5px;
+
+%link-styles {
+    text-decoration: none; 
+    font-family: $body-font
+}
+
+body {
+    max-width: 960px;
+    margin: auto;
+}
+
+// nav & header 
+.title {
+    background-color: $accent-color;
+    padding: 1rem 0;
+
+    &__heading {
+        text-align: right;
+        margin: 2rem;
+    }
+    &__link {
+        font-family: $header-font;
+        color: $background-color;
+        @extend %link-styles;
+
+        &--active:active {
+            color: $active-color;
+        }
+    }
+    // large view
+    @media (min-width: 50em) {
+        & {
+            height: 100vw;
+            width: 250px;
+            position: fixed;
+            left: auto;
+            top: 0;
+        }
+    }
+}
+
+.nav {
+    border-top: $border-width solid $background-color;
+    padding-top: 1rem;
+    margin: 2rem;
+
+    &__list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        text-align: right;
+    }
+    &__link {
+        color: $background-color;
+        @extend %link-styles;
+
+        &--active:active {
+            color: $active-color;
+        }
+    }
+}    
+
+// main & articles
+main {
+    background-color: $background-color;
+    padding: 1rem;
+    margin: 0;
+    // large view
+    @media (min-width: 50em) {
+        & {
+            margin-left: 250px;
+            padding: 1rem 5rem;
+        }
+    }
+}
+.article {
+    background-color: $second-background-color;
+    padding: 2rem;
+    margin: 3rem 0;
+    box-shadow: rgba(0, 0, 0, 0.2) 2px 2px 2.5px;
+}
+.post {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.post__heading {
+    color: $font-color;
+    font-family: $header-font;
+    @extend %link-styles;
+}
+.post__heading--hover:hover {
+    color: $accent-color;
+    border-bottom: $border-width solid $accent-color;
+}
+.post__figure {
+    max-width: 350px;
+    align-self: center;
+}
+.post__text {
+    font-family: $body-font;
+}
+.post__link {
+    color: $accent-color;
+    @extend %link-styles;
+}
+.post__link--active:active {
+    color: $active-color;
+}
+.post__date {
+    font-family: $minor-font;
+    color: $second-font-color;
+}
+hr { display: none;
+}
