@@ -13,20 +13,32 @@ $minor-font: Arial, sans-serif;
 
 $border-width: 1.5px;
 
+$break-large: 50em;
+@mixin breakpoint {
+    @media(min-width: $break-large) {@content;}   
+}
+
 %link-styles {
     text-decoration: none; 
     font-family: $body-font
 }
 
+// -----------------------------
 body {
     max-width: 960px;
     margin: auto;
 }
-
 // nav & header 
 .title {
     background-color: $accent-color;
     padding: 1rem 0;
+    @include breakpoint {
+        height: 100vw;
+        width: 250px;
+        position: fixed;
+        left: auto;
+        top: 0;
+    }
 
     &__heading {
         text-align: right;
@@ -39,16 +51,6 @@ body {
 
         &--active:active {
             color: $active-color;
-        }
-    }
-    // large view
-    @media (min-width: 50em) {
-        & {
-            height: 100vw;
-            width: 250px;
-            position: fixed;
-            left: auto;
-            top: 0;
         }
     }
 }
@@ -79,12 +81,9 @@ main {
     background-color: $background-color;
     padding: 1rem;
     margin: 0;
-    // large view
-    @media (min-width: 50em) {
-        & {
-            margin-left: 250px;
-            padding: 1rem 5rem;
-        }
+    @include breakpoint {
+        margin-left: 250px;
+        padding: 1rem 5rem;
     }
 }
 .article {
@@ -102,10 +101,11 @@ main {
     color: $font-color;
     font-family: $header-font;
     @extend %link-styles;
-}
-.post__heading--hover:hover {
-    color: $accent-color;
-    border-bottom: $border-width solid $accent-color;
+
+    &--hover:hover {
+        color: $accent-color;
+        border-bottom: $border-width solid $accent-color;
+    }
 }
 .post__figure {
     max-width: 350px;
@@ -117,9 +117,10 @@ main {
 .post__link {
     color: $accent-color;
     @extend %link-styles;
-}
-.post__link--active:active {
-    color: $active-color;
+
+    &--active:active {
+        color: $active-color;
+    }
 }
 .post__date {
     font-family: $minor-font;
