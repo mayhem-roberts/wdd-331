@@ -1,0 +1,94 @@
+// main grid
+.page-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-areas: 
+    "intro intro intro"
+    "main main main"
+    "side side side"
+
+    
+    ;
+}
+.intro {
+    grid-area: intro;
+}
+.main {
+    grid-area: main;
+}
+.sidebar {
+    grid-area: side;
+}
+
+/*------------explanation -------------*/
+
+
+.explanation h3{
+    text-align: center;
+   
+   }
+
+   .explanation p{
+    padding:0px;
+    margin: 10px;
+   }
+
+   .benefits h3 {
+    text-align: center;
+}
+
+
+/*selection */
+
+.design-selection{
+    display: flexbox;
+}
+
+
+
+.design-selection ul {
+    padding: 10px;
+    margin-left: 600px;
+    list-style-type:decimal;
+
+}
+
+.design-selection li {
+    padding: 15px;
+
+}
+
+.design-selection h3{
+    text-align: center;
+}
+
+
+
+// i just used this to define each section for now, go ahead and use the sections you need:)
+.summary {
+    border: 3px solid gray;
+}
+.preamble {
+    border: 3px solid gray;
+}
+.explanation {
+    border: 3px solid gray;
+}
+.participation {
+    border: 3px solid gray;
+}
+.benefits {
+    border: 3px solid gray;
+}
+.requirements {
+    border: 3px solid gray;
+}
+.design-selection {
+    border: 3px solid gray;
+}
+.design-archives {
+    border: 3px solid gray;
+}
+.zen-resources {
+    border: 3px solid gray;
+}

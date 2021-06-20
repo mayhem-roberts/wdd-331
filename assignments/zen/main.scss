@@ -1,0 +1,151 @@
+// Variables 
+$color-1: #f91066; // Paradise Pink - Action color
+$color-2: #2b2853; // Space Cadet Blue
+$color-3: #4bf0fb; // Electric Blue
+$color-4: #f86525; // Orange Red
+$color-5: #ffffff; // white
+
+
+$break-large: 45em;
+@mixin breakpoint {
+    @media(min-width: $break-large) {@content;}   
+}
+$gap: 5rem;
+%grid {
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+}
+
+//
+body {
+    background-color: $color-5;
+}
+
+// main grid
+.page-wrapper {
+    @extend %grid;
+    grid-template-areas: 
+    "intro intro intro"
+    "main main main"
+    "side side side";
+    grid-gap: $gap;
+}
+.intro {
+    grid-area: intro;
+    @extend %grid;
+    grid-template-areas:
+    "... banner ..."
+    "summary summary summary"
+    "preamble preamble preamble";
+    @include breakpoint {
+        grid-template-areas:
+        "... banner ..."
+        "... summary summary"
+        "preamble preamble ...";
+    }
+}
+[role=banner] {
+    grid-area: banner;
+    text-align: center;
+    margin-bottom: $gap;
+}
+.summary {
+    background-color: $color-4;
+    grid-area: summary;
+    text-align: right;
+    margin-bottom: $gap;
+}
+.preamble {
+    background-color: $color-3;
+    grid-area: preamble;
+}
+.preamble h3 {
+    text-align: right;
+}
+
+// main content 
+.main {
+    grid-area: main;
+    @extend %grid;
+    grid-template-areas:
+    "explanation explanation explanation"
+    "benefits benefits benefits"
+    "participation participation participation"
+    "requirements requirements requirements";
+    @include breakpoint {
+        grid-template-areas:
+        "explanation explanation explanation"
+        "benefits benefits benefits"
+        ".... participation participation"
+        "requirements requirements .....";
+    }
+}
+.explanation {
+    grid-area: explanation;
+    background-color: $color-1;
+}
+.benefits {
+    background-color: $color-1;
+    grid-area: benefits;
+    margin-bottom: $gap;
+}
+.explanation h3{
+    text-align: center;
+   }
+   .explanation p{
+    padding:0px;
+    margin: 10px;
+   }
+   .benefits h3 {
+    text-align: center;
+}
+.participation {
+    background-color: $color-3;
+    grid-area: participation;
+    margin-bottom: $gap;
+}
+.requirements {
+    background-color: $color-3;
+    grid-area: requirements;
+}
+.requirements h3 {
+    text-align: right;
+}
+
+// selection and archives
+.sidebar {
+    grid-area: side;
+}
+.design-selection {
+    background-color: $color-1;
+    grid-area: select;
+    margin-bottom: $gap;
+}
+.design-selection ul {
+    column-count: 1;
+    text-align: center;
+    list-style-type: none;
+    @include breakpoint {
+        column-count: 2;
+    }
+}
+.design-selection h3{
+    text-align: center;
+}
+.design-archives {
+    background-color: $color-4;
+}
+.zen-resources {
+    background-color: $color-4;
+}
+.design-archives ul, .zen-resources ul {
+    text-align: right;
+    list-style-type: none;
+}
+.design-archives h3, .zen-resources h3 {
+    text-align: right;
+    list-style-type: none;
+}
+
+
+
